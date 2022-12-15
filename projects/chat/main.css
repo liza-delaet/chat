@@ -1,0 +1,101 @@
+@import url(./css/normalize.css);
+@import url(./css/base.css);
+
+/* Страничка авторизации */
+
+.authorization__container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 452px;
+  gap: 10px;
+}
+
+.authorization__img {
+  width: 139px;
+  height: 139px;
+  background: #232F3D;
+  border-radius: 50%;
+  position: relative;
+}
+
+.authorization__img-icon {
+  position: absolute;
+  transform: translate(30%, 50%);
+}
+
+.authorization__title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.authorization__text {
+  color: #7F91A4;
+  max-width: 300px;
+  text-align: center;
+}
+
+.authorization__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+input {
+  position: relative;
+  font-size: inherit;
+  background: inherit;
+  border: none;
+  color: white;
+  padding: 12px;
+}
+
+.authorization__input {
+  border-bottom: 1px solid #465461;
+}
+
+.authorization__input::placeholder {
+  color: #858F98;
+}
+
+.authorization__input:focus {
+  outline: none;
+}
+
+.authorization__button {
+  background: #5188C1;
+  width: 132px;
+  height: 43px;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Страничка загрузки аватара */
+
+.avatar__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar__img {
+  width: 284px;
+  height: 308px;
+}
+
+.avatar__text {
+  color: #7F91A4;
+}
+
+.avatar__button {
+  color: #6BB2F2;
+  padding: 10px;
+}
+
+.avatar__button:hover {
+  background: #1D2A3A;
+  border-radius: 2px;
+}
