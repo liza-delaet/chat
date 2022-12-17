@@ -4,12 +4,13 @@
 /* Страничка авторизации */
 
 .authorization__container {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  padding: 40px;
   max-width: 452px;
   gap: 10px;
+  /* height: 100vh; */
+  margin-top: 80px;
 }
 
 .authorization__img {
@@ -52,16 +53,16 @@ input {
   padding: 12px;
 }
 
+input:focus {
+  outline: none;
+}
+
 .authorization__input {
   border-bottom: 1px solid #465461;
 }
 
 .authorization__input::placeholder {
   color: #858F98;
-}
-
-.authorization__input:focus {
-  outline: none;
 }
 
 .authorization__button {
@@ -75,10 +76,10 @@ input {
 /* Страничка загрузки аватара */
 
 .avatar__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 10px;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
 }
 
 .avatar__img {
@@ -98,4 +99,110 @@ input {
 .avatar__button:hover {
   background: #1D2A3A;
   border-radius: 2px;
+}
+
+/* Основная страничка чата */
+
+.general__container {
+  height: 100vh;
+  position: relative;
+  flex-direction: row;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.users__list {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user {
+  display: flex;
+}
+
+.user__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user__name {
+  color: #5387C1;
+  font-weight: bold;
+}
+
+.user__lastmessage {
+  color: #7F91A4;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.chat__header {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  border-left: 1px solid #0E1621;
+  padding: 14px;
+}
+
+.chat__title {
+  font-size: 14px;
+}
+
+.chat__countusers {
+  color: #7F91A4;
+}
+
+.chat__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #0E1621;
+  min-height: 300px;
+}
+
+.chat__footer {
+  height: 60px;
+  border-left: 1px solid #0E1621;
+  padding: 12px;
+}
+
+.chat__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat__input {
+  flex: 1;
+}
+
+.chat__button {
+  text-transform: none;
+  background: #5188C1;
+  width: 112px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
 }

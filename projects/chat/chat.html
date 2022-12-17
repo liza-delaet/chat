@@ -17,7 +17,7 @@
       <p class="authorization__text">Введите пожалуйста свой ник для дальнейшей авторизации</p>
       <form class="authorization__form">
         <input type="text" class="authorization__input" name="name" placeholder="Введите свой ник">
-        <button type="submit" class="button authorization__button">Войти</button>
+        <button type="submit" class="button authorization__button" id="authorization">Войти</button>
       </form>
     </div>
   </section>
@@ -29,6 +29,52 @@
       <p class="avatar__text">Область для профильной фотографии</p>
       <button class="button avatar__button">Отмена</button>
       <button class="button avatar__button">Сохранить</button>
+    </div>
+  </section>
+  <section class="general">
+    <div class="container general__container">
+      <div class="users">
+        <div class="users__menu">|||</div>
+        <ul class="users__list">
+          <li class="user">
+            <div class="user__avatar">
+              <img src="./img/boroda.png" class="users__avatar-icon">
+            </div>
+            <div class="user__info">
+              <span class="user__name">Boroda123</span>
+              <span class="user__lastmessage">Рад был пообщаться</span>
+            </div>
+          </li>
+          <li class="user">
+            <div class="user__avatar">
+              <img src="./img/boroda.png" class="users__avatar-icon">
+            </div>
+            <div class="user__info">
+              <span class="user__name">Boroda123</span>
+              <span class="user__lastmessage">Рад был пообщаться</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="chat">
+        <div class="chat__header">
+          <h2 class="chat__title">Чат</h2>
+          <div class="chat__countusers">2 участника</div>
+        </div>
+        <div class="chat__body">
+          <ul class="message">
+            <li class="message__user">
+              1236
+            </li>
+          </ul>
+        </div>
+        <div class="chat__footer">
+          <form class="chat__form">
+            <input type="text" class="chat__input" name="chat" placeholder="Введите сообщение...">
+            <button type="submit" class="button chat__button" id="message">Отправить</button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 </body>
