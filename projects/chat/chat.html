@@ -5,77 +5,83 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat</title>
-  <link rel="stylesheet" href="./main.css">
+  <!-- <link rel="stylesheet" href="../../projects/chat/main.css"> -->
 </head>
 <body>
-  <section class="authorization">
-    <div class="container authorization__container">
-      <div class="authorization__img">
-        <img src="./img/Vector.png" class="authorization__img-icon">
-      </div>
-      <h1 class="authorization__title">Авторизация</h1>
-      <p class="authorization__text">Введите пожалуйста свой ник для дальнейшей авторизации</p>
-      <form class="authorization__form">
-        <input type="text" class="authorization__input" name="name" placeholder="Введите свой ник">
-        <button type="submit" class="button authorization__button" id="authorization">Войти</button>
-      </form>
-    </div>
-  </section>
-  <section class="avatar">
-    <div class="container avatar__container">
-      <div class="avatar__img">
-        <img src="" class="avatar__img-icon">
-      </div>
-      <p class="avatar__text">Область для профильной фотографии</p>
-      <button class="button avatar__button">Отмена</button>
-      <button class="button avatar__button">Сохранить</button>
-    </div>
-  </section>
-  <section class="general">
-    <div class="container general__container">
-      <div class="users">
-        <div class="users__menu">|||</div>
-        <ul class="users__list">
-          <li class="user">
-            <div class="user__avatar">
-              <img src="./img/boroda.png" class="users__avatar-icon">
-            </div>
-            <div class="user__info">
-              <span class="user__name">Boroda123</span>
-              <span class="user__lastmessage">Рад был пообщаться</span>
-            </div>
-          </li>
-          <li class="user">
-            <div class="user__avatar">
-              <img src="./img/boroda.png" class="users__avatar-icon">
-            </div>
-            <div class="user__info">
-              <span class="user__name">Boroda123</span>
-              <span class="user__lastmessage">Рад был пообщаться</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="chat">
-        <div class="chat__header">
-          <h2 class="chat__title">Чат</h2>
-          <div class="chat__countusers">2 участника</div>
+  <div class="app">
+    <section class="authorization" id="authorization">
+      <div class="container authorization__container">
+        <div class="authorization__img">
+          <img src="../../projects/chat/img/Vector.png" class="authorization__img-icon">
         </div>
-        <div class="chat__body">
-          <ul class="message">
-            <li class="message__user">
-              1236
+        <h1 class="authorization__title">Авторизация</h1>
+        <p class="authorization__text">Введите пожалуйста свой ник для дальнейшей авторизации</p>
+        <!-- <form class="authorization__form" id="authorization-form"> -->
+          <input type="text" class="authorization__input" name="name" data-role="login-name-input" placeholder="Введите свой ник">
+          <div data-role="login-error"></div>
+          <button class="button authorization__button" data-role="login-submit">Войти</button>
+        <!-- </form> -->
+      </div>
+    </section>
+    <section class="avatar hidden" id="avatar">
+      <div class="container avatar__container">
+        <div class="avatar__img" data-role="user-photo">
+          <img src="" class="avatar__img-icon">
+        </div>
+        <p class="avatar__text">Область для профильной фотографии</p>
+        <button class="button avatar__button" data-role="avatar-cancel">Отмена</button>
+        <button class="button avatar__button" data-role="avatar-save">Сохранить</button>
+      </div>
+    </section>
+    <section class="general hidden" id="chat">
+      <div class="container general__container">
+        <div class="users">
+          <div class="users__header">
+            <a href="#" class="hamburger" id="hamburger">
+              <span class="hamburger__plank"></span>
+              <span class="hamburger__plank"></span>
+              <span class="hamburger__plank"></span>
+            </a>
+          </div>
+          <ul class="users__list" data-role="user-list">
+            <li class="user">
+              <div class="user__avatar">
+                <img src="../../projects/chat/no-photo.png" class="users__avatar-icon">
+              </div>
+              <div class="user__info">
+                <span class="user__name" data-role="user-name"></span>
+                <span class="user__lastmessage">Рад был пообщаться</span>
+              </div>
+            </li>
+            <li class="user">
+              <div class="user__avatar">
+                <img src="../../projects/chat/no-photo.png" class="users__avatar-icon">
+              </div>
+              <div class="user__info">
+                <span class="user__name">Boroda123</span>
+                <span class="user__lastmessage">Рад был пообщаться</span>
+              </div>
             </li>
           </ul>
         </div>
-        <div class="chat__footer">
-          <form class="chat__form">
-            <input type="text" class="chat__input" name="chat" placeholder="Введите сообщение...">
-            <button type="submit" class="button chat__button" id="message">Отправить</button>
-          </form>
+        <div class="chat">
+          <div class="chat__header">
+            <h2 class="chat__title">Чат</h2>
+            <div class="chat__countusers" data-role="users-counter">2 участника</div>
+          </div>
+          <div class="chat__body">
+            <ul class="message" data-role="messages-list">
+            </ul>
+          </div>
+          <div class="chat__footer" data-role="message-sender">
+            <!-- <form class="chat__form"> -->
+              <input type="text" class="chat__input" name="chat" data-role="message-input" placeholder="Введите сообщение...">
+              <button type="submit" class="button chat__button" data-role="message-send-button">Отправить</button>
+            <!-- </form> -->
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </body>
 </html>

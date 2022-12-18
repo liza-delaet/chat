@@ -2,6 +2,9 @@
 @import url(./css/base.css);
 
 /* Страничка авторизации */
+.hidden {
+  display: none;
+}
 
 .authorization__container {
   align-items: center;
@@ -77,7 +80,9 @@ input:focus {
 
 .avatar__container {
   gap: 10px;
-  height: 100vh;
+  padding: 20px;
+  height: 452px;
+  width: 450px;
   align-items: center;
   flex-direction: column;
 }
@@ -112,13 +117,30 @@ input:focus {
 .users {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
+  gap: 10px;
+}
+
+.hamburger {
+  width: 20px;
+  height: 15px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger__plank {
+  display: block;
+  background: #7F91A4;
+  height: 2px;
+  border-radius: 10px;
+}
+
+.users__header {
+  padding: 15px;
 }
 
 .users__list {
-  min-width: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -131,9 +153,15 @@ input:focus {
 .user__avatar {
   width: 46px;
   height: 46px;
-  border-radius: 50%;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.users__avatar-icon {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .user__info {
@@ -178,16 +206,70 @@ input:focus {
   flex-direction: column;
   flex: 1;
   background: #0E1621;
-  min-height: 300px;
+  padding: 10px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.own.message-item {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-item-header {
+  display: none;
+}
+
+.own .message-item-header {
+  text-align: end;
+}
+
+.first-in-group .message-item-header {
+  display: block;
+}
+
+.own .message-item-body {
+  text-align: end;
+}
+
+.message-item-system {
+  color: #7F91A4;
+  text-align: center;
+}
+
+.message-item-name {
+  color: #5387C1;
+  font-weight: 500;
+}
+
+.message-item-body {
+  display: flex;
+  gap: 10px;
+  background: #182633;
+  padding: 8px;
+  border-radius: 5px;
+  min-width: min-content;
+  max-width: max-content;
+}
+
+.message-item-time {
+  color: #7F91A4;
+  font-size: 12px;
+  bottom: 0;
+}
+
+.own .message-item-body {
+  background: #2B5279;
 }
 
 .chat__footer {
   height: 60px;
   border-left: 1px solid #0E1621;
-  padding: 12px;
-}
-
-.chat__form {
+  padding: 15px;
   display: flex;
   justify-content: space-between;
 }
