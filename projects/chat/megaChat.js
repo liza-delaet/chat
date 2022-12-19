@@ -29,7 +29,8 @@ export default class MegaChat {
         this.onHamburgerClick.bind(this)
       ),
       avatarMenu: new AvatarMenu(
-        document.querySelector('#avatar')
+        document.querySelector('#avatar'),
+        this.sendUpload.bind(this)
       ),
       messageList: new MessageList(document.querySelector('[data-role=messages-list]')),
       messageSender: new MessageSender(
@@ -54,9 +55,19 @@ export default class MegaChat {
   }
 
   onUpload(data) {
-    console.log(data);
     this.ui.userPhoto.set(data);
 
+    // fetch('/chat/ws/upload-photo', {
+    //   method: 'post',
+    //   body: JSON.stringify({
+    //     name: this.userName,
+    //     image: data,
+    //   }),
+    // });
+  }
+
+  sendUpload() {
+    const data = this.ui.userPhoto.get();
     fetch('/chat/ws/upload-photo', {
       method: 'post',
       body: JSON.stringify({
@@ -86,7 +97,7 @@ export default class MegaChat {
     console.log(type, from, data);
 
     if (type === 'hello') {
-      this.ui.userList.add(from, "");
+      this.ui.userList.add(from);
       this.ui.messageList.addSystemMessage(`${from} вошел в чат`);
     } else if (type === 'user-list') {
       for (const item of data) {
@@ -97,7 +108,7 @@ export default class MegaChat {
       this.ui.messageList.addSystemMessage(`${from} вышел из чата`);
     } else if (type === 'text-message') {
       this.ui.messageList.add(from, data.message, this.userName);
-      this.ui.userList.add(from, data.message);
+      this.ui.userList.updateUserLastMessage(from, data.message);
     } else if (type === 'photo-changed') {
       const avatars = document.querySelectorAll(
         `[data-role=user-avatar][data-user=${data.name}]`
@@ -108,6 +119,12 @@ export default class MegaChat {
           data.name
         }.png?t=${Date.now()})`;
       }
+
+      const userListAvatar = document.querySelector(
+        `[data-role=user-list-avatar][data-user="${data.name}"]`
+      );
+
+        userListAvatar.src = `/chat/ws/photos/${data.name}.png?t=${Date.now()})`;
       
     }
   }

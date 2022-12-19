@@ -2,6 +2,7 @@ export default class UserPhoto {
   constructor(element, onUpload) {
     this.element = element;
     this.onUpload = onUpload;
+    this.photo;
 
     this.element.addEventListener('dragover', (e) => {
       if (e.dataTransfer.items.length && e.dataTransfer.items[0].kind === 'file') {
@@ -20,6 +21,11 @@ export default class UserPhoto {
   }
 
   set(photo) {
+    this.photo = photo;
     this.element.style.backgroundImage = `url(${photo})`;
+  }
+
+  get() {
+    return this.photo;
   }
 }
