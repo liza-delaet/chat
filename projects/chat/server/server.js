@@ -19,16 +19,16 @@ const server = http.createServer(async (req, res) => {
   try {
     if (/\/photos\/.+\.png/.test(req.url)) {
       const [, imageName] = req.url.match(/\/photos\/(.+\.png)/) || [];
-      const fallBackPath = path.resolve(__dirname, '../no-photo.png');
+      const fallBackPath = path.resolve(__dirname, '../img/no-photo.png');
+      const photoImage = path.resolve(__dirname, '../img/photo.png');
       const filePath = path.resolve(__dirname, '../photos', decodeURI(imageName));
       
 
       if (fs.existsSync(filePath)) {
-        console.log(1);
         return fs.createReadStream(filePath).pipe(res);
+      } else if (req.url.endsWith('?photo=true')) {
+        return fs.createReadStream(photoImage).pipe(res);
       } else {
-        //console.log(filePath);
-        console.log(2);
         return fs.createReadStream(fallBackPath).pipe(res);
       }
     } else if (req.url.endsWith('/upload-photo')) {

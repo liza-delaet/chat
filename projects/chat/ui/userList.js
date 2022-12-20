@@ -16,11 +16,8 @@ export default class UserList {
       element.classList.add('user-list-item');
       element.innerHTML = `
       <li class="user">
-              <div class="user__avatar">
-                <img src="/chat/ws/photos/${user}.png?t=${Date.now()}" 
-                class="users__avatar-icon"
-                data-role="user-list-avatar" data-user=${sanitize(user)}
-                >
+              <div class="user__avatar" data-role="user-list-avatar" data-user=${sanitize(user)}
+              style="background-image: url(/chat/ws/photos/${user}.png?t=${Date.now()})" >
               </div>
               <div class="user__info">
                 <span class="user__name" data-role="user-name">${user}</span>

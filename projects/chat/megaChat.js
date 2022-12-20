@@ -8,6 +8,7 @@ import MessageSender from './ui/messageSender';
 import WSClient from './wsClient';
 import HamburgerMenu from './ui/hamburgerMenu';
 import AvatarMenu from './ui/avatarMenu';
+import UploadAvatarMenu from './ui/uploadAvatarMenu';
 export default class MegaChat {
   constructor() {
     this.wsClient = new WSClient(
@@ -28,6 +29,10 @@ export default class MegaChat {
         document.querySelector('#hamburger'),
         this.onHamburgerClick.bind(this)
       ),
+      uploadAvatarMenu: new UploadAvatarMenu(
+        document.querySelector('#modal-avatar'),
+        this.onUpload.bind(this)
+        ),
       avatarMenu: new AvatarMenu(
         document.querySelector('#avatar'),
         this.sendUpload.bind(this)
@@ -51,10 +56,12 @@ export default class MegaChat {
   }
 
   onHamburgerClick() {
-    this.ui.avatarMenu.show();
+    this.ui.uploadAvatarMenu.show();
   }
 
   onUpload(data) {
+    this.ui.uploadAvatarMenu.hide();
+    this.ui.avatarMenu.show();
     this.ui.userPhoto.set(data);
 
     // fetch('/chat/ws/upload-photo', {
@@ -86,6 +93,7 @@ export default class MegaChat {
     await this.wsClient.connect();
     localStorage.setItem("loginName", name);
     this.wsClient.sendHello(name);
+    this.ui.uploadAvatarMenu.set(name);
     this.ui.loginWindow.hide();
     this.ui.mainWindow.show();
     this.ui.messageSender.bindEnter();
@@ -113,18 +121,32 @@ export default class MegaChat {
       const avatars = document.querySelectorAll(
         `[data-role=user-avatar][data-user=${data.name}]`
       );
+      const userListAvatar = document.querySelector(
+        `[data-role=user-list-avatar][data-user="${data.name}"]`
+      );
+      const uploadAvatar = document.querySelector(
+        `[data-role=upload-avatar]`
+      );
+
+      const date = Date.now();
 
       for (const avatar of avatars) {
         avatar.style.backgroundImage = `url(/chat/ws/photos/${
           data.name
-        }.png?t=${Date.now()})`;
+        }.png?t=${date})`;
       }
 
-      const userListAvatar = document.querySelector(
-        `[data-role=user-list-avatar][data-user="${data.name}"]`
-      );
+      userListAvatar.style.backgroundImage = `url(/chat/ws/photos/${
+        data.name
+      }.png?t=${date})`;
 
-        userListAvatar.src = `/chat/ws/photos/${data.name}.png?t=${Date.now()})`;
+      if(data.name === this.userName) {
+        uploadAvatar.style.backgroundImage = `url(/chat/ws/photos/${
+          data.name
+        }.png?t=${date}?photo=true)`;
+        // uploadAvatar.style.backgroundSize = "100%";
+        // uploadAvatar.style.backgroundPosition = "inherit";
+      }
       
     }
   }

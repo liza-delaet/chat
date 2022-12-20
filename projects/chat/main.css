@@ -1,10 +1,15 @@
 @import url(./css/normalize.css);
 @import url(./css/base.css);
 
-/* Страничка авторизации */
 .hidden {
   display: none;
 }
+
+section {
+  height: 100vh;
+}
+
+/* Страничка авторизации */
 
 .authorization__container {
   align-items: center;
@@ -12,8 +17,8 @@
   padding: 40px;
   max-width: 452px;
   gap: 10px;
-  /* height: 100vh; */
-  margin-top: 80px;
+  height: 100vh;
+  padding-top: 80px;
 }
 
 .authorization__img {
@@ -76,15 +81,105 @@ input:focus {
   color: white;
 }
 
+/* Модальное окно аватара */
+
+.modal-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(00, 00, 00, .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-avatar-container {
+  position: relative;
+}
+
+.modal-avatar__content {
+  width: 364px;
+  height: 220px;
+  background: #17212B;
+  border-radius: 5px;
+  padding: 32px;
+  color: #fff;
+  margin: 0;
+}
+
+.modal-avatar-close {
+  color: #747E87;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.modal-avatar__title {
+  margin-bottom: 34px;
+}
+
+.modal-avatar__save {
+  display: flex;
+  gap: 15px;
+}
+
+.modal-avatar__photo {
+  height: 86px;
+  width: 86px;
+  border-radius: 50%;
+  background-color: #232F3D;
+  background-image: url(../../projects/chat/img/photo.png);
+  background-size: 100%;
+  position: relative;
+}
+
+/* .modal-avatar__photo-icon {
+  width: 23px;
+  height: 20px;
+  position: absolute;
+  top: 38%;
+  left: 38%;
+} */
+
+.modal-avatar__name {
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+
 /* Страничка загрузки аватара */
 
+.avatar {
+  background: rgba(00, 00, 00, .4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
 .avatar__container {
+  background: #17212B;
   gap: 10px;
   padding: 20px;
   height: 452px;
   width: 450px;
   align-items: center;
   flex-direction: column;
+  top: 10%;
 }
 
 .avatar__img {
@@ -156,14 +251,17 @@ input:focus {
   height: 46px;
   margin-right: 10px;
   cursor: pointer;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
-.users__avatar-icon {
+/* .users__avatar-icon {
   border-radius: 50%;
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
+} */
 
 .user__info {
   display: flex;
@@ -210,6 +308,7 @@ input:focus {
   background: #0E1621;
   padding: 10px;
   overflow: overlay;
+  overflow-y: inherit;
 }
 
 .message {

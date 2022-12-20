@@ -11,6 +11,11 @@ export default class AvatarMenu {
       this.sendUpload();
       this.hide();
     });
+    this.element.addEventListener('click', (e) => {
+      if (e.target === this.element) {
+      this.hide();
+      }
+    });
   }
 
   show() {

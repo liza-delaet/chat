@@ -55,7 +55,7 @@ export default class MessageList {
     }
 
     this.element.append(item);
-    this.element.scrollTop = this.element.scrollHeight;
+    this.element.parentElement.scrollTop = this.element.parentElement.scrollHeight;
   }
 
   addSystemMessage(message) {
@@ -65,6 +65,7 @@ export default class MessageList {
     item.textContent = message;
 
     this.element.append(item);
-    this.element.scrollTop = this.element.scrollHeight;
+    this.element.parentElement.scrollTop = this.element.parentElement.scrollHeight;
+    
   }
 }
