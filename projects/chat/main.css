@@ -124,7 +124,12 @@ input:focus {
 }
 
 .modal-avatar__title {
-  margin-bottom: 34px;
+  margin-bottom: 5px;
+}
+
+.modal-avatar__text {
+  color: #7F91A4;
+  margin-bottom: 14px;
 }
 
 .modal-avatar__save {
@@ -139,16 +144,9 @@ input:focus {
   background-color: #232F3D;
   background-image: url(../../projects/chat/img/photo.png);
   background-size: 100%;
+  background-repeat: no-repeat;
   position: relative;
 }
-
-/* .modal-avatar__photo-icon {
-  width: 23px;
-  height: 20px;
-  position: absolute;
-  top: 38%;
-  left: 38%;
-} */
 
 .modal-avatar__name {
   font-weight: 500;
@@ -186,6 +184,7 @@ input:focus {
   width: 284px;
   height: 308px;
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .avatar__text {
@@ -256,13 +255,6 @@ input:focus {
   background-size: 100%;
 }
 
-/* .users__avatar-icon {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-} */
-
 .user__info {
   display: flex;
   flex-direction: column;
@@ -311,6 +303,20 @@ input:focus {
   overflow-y: inherit;
 }
 
+.chat__body::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+}
+
+.chat__body::-webkit-scrollbar-track {
+  background: #27394abb;      /* цвет дорожки */
+}
+
+.chat__body::-webkit-scrollbar-thumb {
+  background-color: #4f77a4;    /* цвет плашки */
+  border-radius: 20px;         /* закругления плашки */
+  border: 3px solid #4f77a4;  /* padding вокруг плашки */
+}
+
 .message {
   display: flex;
   flex-direction: column;
@@ -342,12 +348,6 @@ input:focus {
   margin-left: 38px;
 }
 
-/* .own .message-item {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 36px;
-} */
-
 .message-item.first-in-group {
   margin-left: 0;
 }
@@ -362,10 +362,6 @@ input:focus {
   margin-right: 38px;
   /* justify-content: flex-end; */
 }
-
-/* .first-in-group.own {
-  flex-direction: row-reverse;
-} */
 
 .message-item-header {
   display: none;
@@ -433,6 +429,7 @@ input:focus {
 
 .chat__input {
   flex: 1;
+  
 }
 
 .chat__button {

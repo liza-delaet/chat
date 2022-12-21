@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat</title>
-  <!-- <link rel="stylesheet" href="../../projects/chat/main.css"> -->
 </head>
 <body>
   <div class="app">
@@ -16,11 +15,9 @@
         </div>
         <h1 class="authorization__title">Авторизация</h1>
         <p class="authorization__text">Введите пожалуйста свой ник для дальнейшей авторизации</p>
-        <!-- <form class="authorization__form" id="authorization-form"> -->
           <input type="text" class="authorization__input" name="name" data-role="login-name-input" placeholder="Введите свой ник">
           <div data-role="login-error"></div>
           <button class="button authorization__button" data-role="login-submit">Войти</button>
-        <!-- </form> -->
       </div>
     </section>
     <section class="modal-avatar hidden" id="modal-avatar">
@@ -28,6 +25,7 @@
         <a class="modal-avatar-close" data-role="modal-avatar-close" href="#">x</a>
         <div class="modal-avatar__content">
           <h2 class="modal-avatar__title">Загрузка фото</h2>
+          <p class="modal-avatar__text">Перетащите файл для загрузки</p>
           <div class="modal-avatar__save" data-role="upload-avatar-zone">
             <div class="modal-avatar__photo" data-role="upload-avatar"></div>
             <div class="modal-avatar__name" data-role="upload-avatar-name"></div>
@@ -68,10 +66,8 @@
             </ul>
           </div>
           <div class="chat__footer" data-role="message-sender">
-            <!-- <form class="chat__form"> -->
               <input type="text" class="chat__input" name="chat" data-role="message-input" placeholder="Введите сообщение...">
               <button type="submit" class="button chat__button" data-role="message-send-button">Отправить</button>
-            <!-- </form> -->
           </div>
         </div>
       </div>

@@ -12,7 +12,6 @@ import UploadAvatarMenu from './ui/uploadAvatarMenu';
 export default class MegaChat {
   constructor() {
     this.wsClient = new WSClient(
-      // `ws://localhost:8282`,
       `ws://${location.host}/chat/ws`,
       this.onMessage.bind(this)
     );
@@ -63,14 +62,6 @@ export default class MegaChat {
     this.ui.uploadAvatarMenu.hide();
     this.ui.avatarMenu.show();
     this.ui.userPhoto.set(data);
-
-    // fetch('/chat/ws/upload-photo', {
-    //   method: 'post',
-    //   body: JSON.stringify({
-    //     name: this.userName,
-    //     image: data,
-    //   }),
-    // });
   }
 
   sendUpload() {
@@ -98,7 +89,6 @@ export default class MegaChat {
     this.ui.mainWindow.show();
     this.ui.messageSender.bindEnter();
     this.userName = name;
-    //this.ui.userPhoto.set(`/mega-chat-3/photos/${name}.png?t=${Date.now()}`);
   }
 
   onMessage({ type, from, data }) {
@@ -144,8 +134,6 @@ export default class MegaChat {
         uploadAvatar.style.backgroundImage = `url(/chat/ws/photos/${
           data.name
         }.png?t=${date}?photo=true)`;
-        // uploadAvatar.style.backgroundSize = "100%";
-        // uploadAvatar.style.backgroundPosition = "inherit";
       }
       
     }

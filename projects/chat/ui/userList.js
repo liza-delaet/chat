@@ -2,7 +2,6 @@ import { sanitize } from '../utils';
 export default class UserList {
   constructor(element, counter) {
     this.element = element;
-    // this.items = new Set();
     this.items = new Map();
     this.counter = counter;
   }
@@ -49,7 +48,6 @@ export default class UserList {
   }
 
   remove(name) {
-    // this.items.remove(name);
     this.items.delete(name);
     this.buildDOM();
   }
